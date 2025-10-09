@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparência | ONG dos AUMIGOS</title>
+
+    <meta name="description" content="Prestação de contas e relatórios financeiros da ONG dos AUMIGOS. Veja como suas doações ajudam nossos animais.">
+    <meta name="keywords" content="transparência, doações, finanças, relatórios, ong, animais, prestação de contas">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- ===== CABEÇALHO ===== -->
+    <header>
+        <div class="container">
+            <h1>🐾 ONG dos AUMIGOS</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="voluntariado.html">Voluntariado</a></li>
+                    <li><a href="doacoes.html">Doações</a></li>
+                    <li><a href="transparencia.html" class="ativo">Transparência</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== BANNER INTERNO ===== -->
+    <section>
+    <h2>Distribuição de Recursos - 2025</h2>
+    <canvas id="graficoGastos" width="400" height="400"></canvas>
+    <p class="legenda">Como utilizamos as doações arrecadadas neste ano.</p>
+</section>
+
+<section>
+    <h2>Recursos Arrecadados e Itens Recebidos</h2>
+    <canvas id="graficoDoacoes" width="600" height="350"></canvas>
+    <p class="legenda">Valores financeiros e doações físicas (ração, brinquedos, shampoo).</p>
+</section>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="container" id="transparencia">
+        <section>
+            <h2>Distribuição de Recursos - 2025</h2>
+            <canvas id="graficoGastos" width="400" height="400"></canvas>
+            <p class="legenda">Recursos aplicados em projetos de resgate, cuidados e estrutura.</p>
+        </section>
+
+        <section>
+            <h2>Evolução das Doações (2021 - 2025)</h2>
+            <canvas id="graficoDoacoes" width="600" height="350"></canvas>
+            <p class="legenda">Crescimento constante graças à confiança dos nossos apoiadores.</p>
+        </section>
+    </main>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer>
+        <p>&copy; 2025 ONG dos AUMIGOS | Todos os direitos reservados</p>
+        <p>Siga-nos:
+            <a href="#">Instagram</a> |
+            <a href="#">Facebook</a> |
+            <a href="#">YouTube</a>
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
