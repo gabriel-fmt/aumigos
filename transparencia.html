@@ -1,83 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transparência | ONG dos AUMIGOS</title>
-
-    <meta name="description" content="Prestação de contas e relatórios financeiros da ONG dos AUMIGOS. Veja como suas doações ajudam nossos animais.">
-    <meta name="keywords" content="transparência, doações, finanças, relatórios, ong, animais, prestação de contas">
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <title>Transparência | ONG dos AUMIGOS</title>
+  <meta name="description" content="Prestação de contas e relatórios financeiros da ONG dos AUMIGOS. Veja como suas doações ajudam nossos animais.">
+  <meta name="keywords" content="transparência, doações, finanças, relatórios, ong, animais, prestação de contas">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <!-- ===== CABEÇALHO ===== -->
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="brand">
-                <h1>ONG dos AUMIGOS</h1>
-            </div>
-            <nav class="primary-menu" role="navigation" aria-label="Menu principal">
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre.html">Quem Somos</a></li>
-                    <li><a href="projetos.html">Projetos</a></li>
-                    <li><a href="voluntariado.html">Voluntariado</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="transparencia.html" class="ativo">Transparência</a></li>
-                    <li><a href="doacoes.html">Doações</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <a class="skip-link" href="#main">Ir para o conteúdo principal</a>
 
-    <!-- ===== BANNER INTERNO ===== -->
-    <section class="banner-transparencia">
-        <div class="container">
-            <h2>Prestação de Contas - Transparência 2025</h2>
-            <p>Veja como aplicamos cada doação para transformar vidas e garantir o bem-estar animal.</p>
-        </div>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html" aria-label="Página inicial ONG dos AUMIGOS">
+          <h1>ONG dos AUMIGOS</h1>
+        </a>
+      </div>
+      <button id="nav-toggle" class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Abrir menu">☰</button>
+      <nav id="primary-menu" class="primary-menu" role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Quem Somos</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="voluntariado.html">Voluntariado</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="transparencia.html" class="ativo">Transparência</a></li>
+          <li><a href="doacoes.html">Doações</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="banner-transparencia">
+    <div class="container">
+      <h2>Prestação de Contas - Transparência 2025</h2>
+      <p>Veja como aplicamos cada doação para transformar vidas e garantir o bem-estar animal.</p>
+    </div>
+  </section>
+
+  <main class="container" id="main">
+    <section>
+      <h2>Distribuição de Recursos - 2025</h2>
+      <canvas id="graficoGastos" width="400" height="400"></canvas>
+      <p class="legenda">Recursos aplicados em resgates, alimentação, cuidados veterinários e infraestrutura.</p>
     </section>
 
-    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
-    <main class="container" id="transparencia">
+    <section>
+      <h2>Recursos Arrecadados e Itens Recebidos</h2>
+      <canvas id="graficoDoacoes" width="600" height="350"></canvas>
+      <p class="legenda">Representação dos valores financeiros e doações físicas (ração, brinquedos, shampoo).</p>
+    </section>
+  </main>
 
-        <!-- Distribuição de Gastos -->
-        <section>
-            <h2>Distribuição de Recursos - 2025</h2>
-            <canvas id="graficoGastos" width="400" height="400"></canvas>
-            <p class="legenda">Recursos aplicados em resgates, alimentação, cuidados veterinários e infraestrutura.</p>
-        </section>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 ONG dos AUMIGOS | Todos os direitos reservados</p>
+      <p>Siga-nos:
+        <a href="#">Instagram</a> |
+        <a href="#">Facebook</a> |
+        <a href="#">YouTube</a>
+      </p>
+    </div>
+  </footer>
 
-        <!-- Itens arrecadados -->
-        <section>
-            <h2>Recursos Arrecadados e Itens Recebidos</h2>
-            <canvas id="graficoDoacoes" width="600" height="350"></canvas>
-            <p class="legenda">Representação dos valores financeiros e doações físicas (ração, brinquedos, shampoo).</p>
-        </section>
-
-    </main>
-
-    <!-- ===== RODAPÉ ===== -->
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2025 ONG dos AUMIGOS | Todos os direitos reservados</p>
-            <p>Siga-nos:
-                <a href="#">Instagram</a> |
-                <a href="#">Facebook</a> |
-                <a href="#">YouTube</a>
-            </p>
-        </div>
-    </footer>
-
-    <!-- ===== SCRIPTS ===== -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
-
-
-
