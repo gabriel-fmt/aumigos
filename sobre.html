@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/favicon.png">
   <title>Sobre | ONG dos AUMIGOS</title>
   <meta name="description" content="Conheça a história, equipe e missão da ONG dos AUMIGOS.">
@@ -14,19 +13,23 @@
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <div class="brand"><a href="index.html"><h1>🐾 ONG dos AUMIGOS</h1></a></div>
-      <button id="nav-toggle-2" class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Abrir menu">☰</button>
-      <nav class="primary-menu" role="navigation" aria-label="Menu principal">
+      <div class="brand">
+        <a href="index.html" aria-label="Página inicial ONG dos AUMIGOS">
+          <h1>🐾 ONG dos AUMIGOS</h1>
+        </a>
+      </div>
+      <button id="nav-toggle" class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Abrir menu">☰</button>
+      <nav id="primary-menu" class="primary-menu" role="navigation" aria-label="Menu principal">
         <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html" class="ativo">Quem Somos</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="voluntariado.html">Voluntariado</a></li>
-        <li><a href="cadastro.html">Cadastro</a></li>
-        <li><a href="contato.html">Contato</a></li>
-        <li><a href="transparencia.html">Transparência</a></li>
-        <li><a href="doacoes.html">Doações</a></li>
-        <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html" class="ativo">Quem Somos</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="voluntariado.html">Voluntariado</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="transparencia.html">Transparência</a></li>
+          <li><a href="doacoes.html">Doações</a></li>
+          <li><a href="blog.html">Blog</a></li>
         </ul>
       </nav>
     </div>
@@ -40,21 +43,21 @@
 
     <section aria-labelledby="equipe-title">
       <h2 id="equipe-title">Nossa Equipe</h2>
-      <ul class="grid-cards">
-        <li>
+      <ul class="grid-cards" role="list">
+        <li role="listitem">
           <img src="img/equipe1.jpg" alt="Veterinária Dra. Michelle" loading="lazy">
           <h3>Dra. Michelle Pires</h3>
           <p>Veterinária responsável.</p>
         </li>
-        <li>
+        <li role="listitem">
           <img src="img/equipe2.jpg" alt="Voluntário Rafael" loading="lazy">
           <h3>Rafael Lima</h3>
           <p>Coordenador de adoções.</p>
         </li>
-        <li>
-            <img src="img/equipe3.jpg" alt="Fundador da ONG dos AUMIGOS">
-            <h3>Gabriel Ferreira</h3>
-            <p>Fundador da ONG dos AUMIGOS</p>
+        <li role="listitem">
+          <img src="img/equipe3.jpg" alt="Fundador da ONG dos AUMIGOS" loading="lazy">
+          <h3>Gabriel Ferreira</h3>
+          <p>Fundador da ONG dos AUMIGOS.</p>
         </li>
       </ul>
     </section>
@@ -78,7 +81,3 @@
   <script src="js/script.js" defer></script>
 </body>
 </html>
-
-
-
-
