@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://SEU_USUARIO.github.io/aumigos/</loc></url>
-  <url><loc>https://SEU_USUARIO.github.io/aumigos/sobre.html</loc></url>
-  <url><loc>https://SEU_USUARIO.github.io/aumigos/projetos.html</loc></url>
-  <url><loc>https://SEU_USUARIO.github.io/aumigos/voluntariado.html</loc></url>
-  <url><loc>https://SEU_USUARIO.github.io/aumigos/cadastro.html</loc></url>
+  <url><loc>https://gabriel-fmt.github.io/aumigos/</loc></url>
+  <url><loc>https://gabriel-fmt.github.io/aumigos/sobre.html</loc></url>
+  <url><loc>https://gabriel-fmt.github.io/aumigos/projetos.html</loc></url>
+  <url><loc>https://gabriel-fmt.github.io/aumigos/voluntariado.html</loc></url>
+  <url><loc>https://gabriel-fmt.github.io/aumigos/cadastro.html</loc></url>
+  <url><loc>https://gabriel-fmt.github.io/aumigos/doacoes.html</loc></url>
+  <url><loc>https://gabriel-fmt.github.io/aumigos/transparencia.html</loc></url>
 </urlset>
+
