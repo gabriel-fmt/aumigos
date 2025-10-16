@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <title>Contato | ONG dos AUMIGOS</title>
+  <meta name="description" content="Fale conosco na ONG dos AUMIGOS. Envie dúvidas, sugestões ou mensagens para nossa equipe.">
+  <meta name="keywords" content="contato, mensagem, dúvida, sugestão, ong, animais">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo principal</a>
+
+  <!-- Cabeçalho -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html"><h1>ONG dos AUMIGOS</h1></a>
+      </div>
+      <button id="nav-toggle" class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Abrir menu">☰</button>
+      <nav id="primary-menu" class="primary-menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Quem Somos</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="voluntariado.html">Voluntariado</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="contato.html" class="ativo" aria-current="page">Contato</a></li>
+          <li><a href="transparencia.html">Transparência</a></li>
+          <li><a href="doacoes.html">Doações</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main id="main" class="container" tabindex="-1">
+    <section aria-labelledby="contato-title">
+      <h2 id="contato-title">Fale Conosco</h2>
+      <p>Preencha o formulário abaixo para entrar em contato com nossa equipe. Respondemos o mais rápido possível!</p>
+
+      <form id="contatoForm" novalidate>
+        <label for="nome">Nome completo*</label>
+        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+
+        <label for="email">E-mail*</label>
+        <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
+
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999">
+
+        <label for="assunto">Assunto*</label>
+        <input type="text" id="assunto" name="assunto" required placeholder="Motivo do contato">
+
+        <label for="mensagem">Mensagem*</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escreva sua mensagem aqui"></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Enviar</button>
+          <button type="reset" class="btn secondary">Limpar</button>
+        </div>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 ONG dos AUMIGOS</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contatoForm");
+      const msg = document.getElementById("form-message");
+
+      const mask = {
+        telefone: v => v.replace(/\D/g, "")
+          .replace(/(\d{2})(\d)/, "($1) $2")
+          .replace(/(\d{5})(\d{4})$/, "$1-$2")
+      };
+
+      const telefone = document.getElementById("telefone");
+      if (telefone) {
+        telefone.addEventListener("input", e => {
+          e.target.value = mask.telefone(e.target.value);
+        });
+      }
+
+      if (form) {
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          msg.classList.remove("success", "error");
+
+          if (form.checkValidity()) {
+            const data = Object.fromEntries(new FormData(form).entries());
+            const contatos = JSON.parse(localStorage.getItem("aumigos_contatos") || "[]");
+            contatos.push({ ...data, createdAt: new Date().toISOString() });
+            localStorage.setItem("aumigos_contatos", JSON.stringify(contatos));
+
+            msg.textContent = "Mensagem enviada com sucesso!";
+            msg.classList.add("success");
+            form.reset();
+          } else {
+            msg.textContent = "Por favor, preencha todos os campos obrigatórios corretamente.";
+            msg.classList.add("error");
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
