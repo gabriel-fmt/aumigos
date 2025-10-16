@@ -214,11 +214,12 @@ footer {
   padding: 1rem;
   margin-top: 3rem;
 }
-canvas {
-  max-width: 100%;       
-  width: 100%;           
-  height: 400px;         
-  margin-bottom: 1rem;  
-  display: block;       
+canvas#graficoGastos,
+canvas#graficoDoacoes {
+  width: 100%;
+  max-width: 600px;
+  height: 400px; 
+  margin: 20px auto;
+  display: block;
 }
 
