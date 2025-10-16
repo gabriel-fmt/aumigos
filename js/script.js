@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
           const res = await fetch(`https://viacep.com.br/ws/${valor}/json/`);
           const data = await res.json();
           if (!data.erro) {
-            document.getElementById('endereco')?.setAttribute('value', `${data.logradouro || ''} ${data.bairro || ''}`.trim());
-            document.getElementById('cidade')?.setAttribute('value', data.localidade || '');
-            document.getElementById('estado')?.setAttribute('value', data.uf || '');
+            document.getElementById('endereco')?.value('value', `${data.logradouro || ''} ${data.bairro || ''}`.trim());
+            document.getElementById('cidade')?.value('value', data.localidade || '');
+            document.getElementById('estado')?.value('value', data.uf || '');
           }
         } catch (err) {
           console.warn('Erro ao consultar CEP:', err);
@@ -161,3 +161,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
