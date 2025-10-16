@@ -11,74 +11,81 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== FORMULÁRIO =====
-  const form = document.getElementById("cadastroForm");
-  const msg = document.getElementById("form-message");
+  // ===== MÁSCARAS =====
+  const mask = {
+    cpf: v => v.replace(/\D/g, "")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d{1,2})$/, "$1-$2"),
+    telefone: v => v.replace(/\D/g, "")
+      .replace(/(\d{2})(\d)/, "($1) $2")
+      .replace(/(\d{5})(\d{4})$/, "$1-$2"),
+    cep: v => v.replace(/\D/g, "")
+      .replace(/(\d{5})(\d{3})$/, "$1-$2")
+  };
 
-  if (form) {
-    // Data máxima dinâmica (18 anos)
-    const nascimento = document.getElementById("nascimento");
-    if (nascimento) {
-      const hoje = new Date();
-      hoje.setFullYear(hoje.getFullYear() - 18);
-      nascimento.max = hoje.toISOString().split("T")[0];
-    }
+  // ===== FUNÇÃO DE CONFIGURAÇÃO DE FORMULÁRIO =====
+  function setupForm(formId, storageKey) {
+    const form = document.getElementById(formId);
+    const msg = form?.querySelector(".form-message");
 
-    // Máscaras simples
-    const mask = {
-      cpf: v => v.replace(/\D/g, "")
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d{1,2})$/, "$1-$2"),
-      telefone: v => v.replace(/\D/g, "")
-        .replace(/(\d{2})(\d)/, "($1) $2")
-        .replace(/(\d{5})(\d{4})$/, "$1-$2"),
-      cep: v => v.replace(/\D/g, "")
-        .replace(/(\d{5})(\d{3})$/, "$1-$2")
-    };
+    if (!form || !msg) return;
 
+    // Máscaras
     form.querySelectorAll("input").forEach(input => {
-      input.addEventListener("input", e => {
-        const { id, value } = e.target;
-        if (mask[id]) e.target.value = mask[id](value);
-      });
+      const id = input.id;
+      if (mask[id]) {
+        input.addEventListener("input", e => {
+          e.target.value = mask[id](e.target.value);
+        });
+      }
     });
 
-    // ViaCEP automático
-    const cep = document.getElementById("cep");
-    if (cep) {
-      cep.addEventListener("blur", async e => {
-        const valor = e.target.value.replace(/\D/g, "");
-        if (valor.length === 8) {
-          try {
-            const res = await fetch(`https://viacep.com.br/ws/${valor}/json/`);
-            const data = await res.json();
-            if (!data.erro) {
-              const enderecoEl = document.getElementById("endereco");
-              const cidadeEl = document.getElementById("cidade");
-              const estadoEl = document.getElementById("estado");
-              if (enderecoEl) enderecoEl.value = `${data.logradouro || ""} ${data.bairro || ""}`.trim();
-              if (cidadeEl) cidadeEl.value = data.localidade || "";
-              if (estadoEl) estadoEl.value = data.uf || "";
+    // ViaCEP para formulário de cadastro
+    if (formId === "cadastroForm") {
+      const cep = document.getElementById("cep");
+      if (cep) {
+        cep.addEventListener("blur", async e => {
+          const valor = e.target.value.replace(/\D/g, "");
+          if (valor.length === 8) {
+            try {
+              const res = await fetch(`https://viacep.com.br/ws/${valor}/json/`);
+              const data = await res.json();
+              if (!data.erro) {
+                document.getElementById("endereco")?.setAttribute("value", `${data.logradouro || ""} ${data.bairro || ""}`.trim());
+                document.getElementById("cidade")?.setAttribute("value", data.localidade || "");
+                document.getElementById("estado")?.setAttribute("value", data.uf || "");
+              }
+            } catch {
+              console.warn("Falha ao buscar CEP");
             }
-          } catch {
-            console.warn("Falha ao buscar CEP");
           }
-        }
-      });
+        });
+      }
+
+      // Limitar data de nascimento
+      const nascimento = document.getElementById("nascimento");
+      if (nascimento) {
+        const hoje = new Date();
+        hoje.setFullYear(hoje.getFullYear() - 18);
+        nascimento.max = hoje.toISOString().split("T")[0];
+      }
     }
 
-    // Validação e feedback
+    // Submit
     form.addEventListener("submit", e => {
       e.preventDefault();
       msg.classList.remove("success", "error");
 
       if (form.checkValidity()) {
-        const formData = new FormData(form);
-        const dados = Object.fromEntries(formData.entries());
-        localStorage.setItem("cadastro", JSON.stringify(dados));
+        const data = Object.fromEntries(new FormData(form).entries());
+        const stored = JSON.parse(localStorage.getItem(storageKey) || "[]");
+        stored.push({ ...data, createdAt: new Date().toISOString() });
+        localStorage.setItem(storageKey, JSON.stringify(stored));
 
-        msg.textContent = "Cadastro realizado com sucesso!";
+        msg.textContent = storageKey === "cadastro" 
+          ? "Cadastro realizado com sucesso!"
+          : "Mensagem enviada com sucesso!";
         msg.classList.add("success");
         msg.setAttribute("role", "status");
         form.reset();
@@ -90,9 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Configura ambos os formulários
+  setupForm("cadastroForm", "cadastro");
+  setupForm("contatoForm", "aumigos_contatos");
+
   // ===== GRÁFICOS =====
   if (typeof Chart !== "undefined") {
-    // Gráfico de pizza (Doughnut)
     const gastos = document.getElementById("graficoGastos");
     if (gastos) {
       new Chart(gastos.getContext("2d"), {
@@ -114,7 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Gráfico de barras
     const doacoes = document.getElementById("graficoDoacoes");
     if (doacoes) {
       new Chart(doacoes.getContext("2d"), {
