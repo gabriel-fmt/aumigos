@@ -9,11 +9,15 @@
   <meta name="keywords" content="transparência, doações, finanças, relatórios, ong, animais, prestação de contas">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Ir para o conteúdo principal</a>
+
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand"><a href="index.html"><h1>ONG dos AUMIGOS</h1></a></div>
+      <div class="brand">
+        <a href="index.html"><h1>ONG dos AUMIGOS</h1></a>
+      </div>
       <button id="nav-toggle" class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Abrir menu">☰</button>
       <nav id="primary-menu" class="primary-menu" aria-label="Menu principal">
         <ul>
@@ -32,20 +36,37 @@
   </header>
 
   <main id="main" class="container" tabindex="-1">
-    <section aria-labelledby="transp-title">
+    <section id="transparencia" aria-labelledby="transp-title">
       <h2 id="transp-title">Prestação de Contas</h2>
       <p>Acreditamos na transparência como base de confiança. Abaixo estão nossos relatórios anuais de atividades e balanços financeiros.</p>
+
       <ul>
         <li><a href="docs/relatorio2023.pdf">Relatório Anual 2023</a></li>
         <li><a href="docs/balanco2023.pdf">Balanço Financeiro 2023</a></li>
         <li><a href="docs/relatorio2022.pdf">Relatório Anual 2022</a></li>
       </ul>
+
+      <div class="banner-transparencia">
+        <h3>Transparência em Números</h3>
+        <p>Veja como aplicamos os recursos e o impacto das doações.</p>
+      </div>
+
+      <canvas id="graficoGastos" aria-label="Gráfico de gastos da ONG" role="img"></canvas>
+      <p class="legenda">Distribuição dos gastos da ONG por área de atuação.</p>
+
+      <canvas id="graficoDoacoes" aria-label="Gráfico de doações recebidas" role="img"></canvas>
+      <p class="legenda">Recursos arrecadados e itens recebidos em 2025.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container"><p>&copy; 2025 ONG dos AUMIGOS</p></div>
+    <div class="container">
+      <p>&copy; 2025 ONG dos AUMIGOS</p>
+    </div>
   </footer>
+
+  <!-- ⚙️ Importar o Chart.js antes do script principal -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/script.js" defer></script>
 </body>
 </html>
