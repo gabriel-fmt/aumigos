@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const msg = document.getElementById("form-message");
 
   if (form) {
-    // Aplica data máxima dinâmica (18 anos)
+    // Data máxima dinâmica (18 anos)
     const nascimento = document.getElementById("nascimento");
     if (nascimento) {
       const hoje = new Date();
@@ -90,10 +90,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ===== GRÁFICOS =====
   if (typeof Chart !== "undefined") {
-    const ctx = document.getElementById("graficoDoacoes");
-    if (ctx) {
-      new Chart(ctx, {
+    // Gráfico de pizza (Doughnut)
+    const gastos = document.getElementById("graficoGastos");
+    if (gastos) {
+      new Chart(gastos.getContext("2d"), {
+        type: "doughnut",
+        data: {
+          labels: ["Atendimento Veterinário", "Alimentação", "Resgates", "Infraestrutura", "Campanhas"],
+          datasets: [{
+            data: [35, 25, 15, 15, 10],
+            backgroundColor: ["#4CAF50", "#FFC107", "#03A9F4", "#E91E63", "#9C27B0"]
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: "bottom" },
+            title: { display: true, text: "Distribuição dos Gastos (%)" }
+          }
+        }
+      });
+    }
+
+    // Gráfico de barras
+    const doacoes = document.getElementById("graficoDoacoes");
+    if (doacoes) {
+      new Chart(doacoes.getContext("2d"), {
         type: "bar",
         data: {
           labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio"],
@@ -108,6 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
           plugins: {
             legend: { display: true },
             title: { display: true, text: "Transparência das Doações" }
+          },
+          scales: {
+            y: { beginAtZero: true }
           }
         }
       });
