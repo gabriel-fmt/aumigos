@@ -8,6 +8,15 @@
   <meta name="description" content="Prestação de contas e relatórios financeiros da ONG dos AUMIGOS. Veja como suas doações ajudam nossos animais.">
   <meta name="keywords" content="transparência, doações, finanças, relatórios, ong, animais, prestação de contas">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Ajuste para que os gráficos tenham altura mínima e sejam responsivos */
+    #graficoGastos, #graficoDoacoes {
+      max-width: 100%;
+      height: 400px;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -29,7 +38,6 @@
           <li><a href="contato.html">Contato</a></li>
           <li><a href="transparencia.html" class="ativo" aria-current="page">Transparência</a></li>
           <li><a href="doacoes.html">Doações</a></li>
-          <li><a href="blog.html">Blog</a></li>
         </ul>
       </nav>
     </div>
@@ -59,9 +67,7 @@
     </div>
   </footer>
 
-  <!-- ⚙️ Importar o Chart.js antes do script principal -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/script.js" defer></script>
 </body>
 </html>
-
