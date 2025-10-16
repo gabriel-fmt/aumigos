@@ -112,3 +112,45 @@
                 <option value="RR">RR</option>
                 <option value="SC">SC</option>
                 <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="TO">TO</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Voluntariado</legend>
+
+          <label for="habilidades">Habilidades / Áreas de interesse</label>
+          <textarea id="habilidades" name="habilidades" rows="3"
+                    placeholder="Ex: cuidados com animais, fotografia, redes sociais..."></textarea>
+
+          <label for="disponibilidade">Disponibilidade</label>
+          <select id="disponibilidade" name="disponibilidade">
+            <option value="">Selecione...</option>
+            <option value="semana">Durante a semana</option>
+            <option value="fimdesemana">Fins de semana</option>
+            <option value="eventos">Somente em eventos</option>
+          </select>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Enviar inscrição</button>
+          <button type="reset" class="btn secondary">Limpar</button>
+        </div>
+
+        <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 ONG dos AUMIGOS</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
