@@ -5,7 +5,8 @@ Site institucional experimental para disciplina de (nome da disciplina).
 ## Entrega
 - Link público: https://gabriel-fmt.github.io/aumigos/
 - Estrutura de pastas:
-  - `index.html`, `projetos.html`, `cadastro.html`
+  - `index.html`, `projetos.html`, `cadastro.html`, `contato.html`, `transparencia.html`, `voluntariado.html`, `sobre.html`, `doacoes.html`.
+
   - `css/` (style.css)
   - `js/` (form.js, script.js)
   - `img/` (imagens otimizadas)
@@ -24,3 +25,4 @@ Site institucional experimental para disciplina de (nome da disciplina).
 code .
 
 # testar via live server / abrir index.html no navegador
+
